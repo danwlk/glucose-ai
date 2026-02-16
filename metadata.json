@@ -1,0 +1,7 @@
+{
+  "name": "GlucoScan AI",
+  "description": "An AI-powered food analyzer that estimates blood sugar impact based on visual food recognition. Using advanced computer vision, it provides nutritional insights and predicted glucose curves.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
