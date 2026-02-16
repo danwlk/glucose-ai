@@ -2,8 +2,21 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { FoodImpact, UserProfile, MealRecommendation } from "../types";
 
+// Validate API key exists
+const API_KEY = process.env.API_KEY;
+
+if (!API_KEY || API_KEY === 'undefined' || API_KEY === 'null') {
+  throw new Error(
+    'GEMINI_API_KEY is missing! Please:\n' +
+    '1. Create a .env.local file in the project root\n' +
+    '2. Add: GEMINI_API_KEY=your_api_key_here\n' +
+    '3. Get your key from: https://makersuite.google.com/app/apikey\n' +
+    '4. Restart the dev server'
+  );
+}
+
 // Initialize Gemini API client following strict guidelines
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const ai = new GoogleGenAI({ apiKey: API_KEY });
 
 const getLanguageName = (code: string) => {
   const map: Record<string, string> = {
